@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="おんぷをよもう - 3〜7歳のお子様向け音符読み練習アプリ。楽しくピアノの音符を学ぼう！">
+    <title>🎵 おんぷをよもう！</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">
+                <span class="note-icon">🎵</span>
+                おんぷをよもう！
+            </h1>
+            <div class="mode-buttons">
+                <button id="treble-btn" class="mode-btn active" aria-label="ト音記号モード">
+                    <span class="clef-icon">𝄞</span>
+                    <span class="mode-label">ト音</span>
+                </button>
+                <button id="bass-btn" class="mode-btn" aria-label="ヘ音記号モード">
+                    <span class="clef-icon">𝄢</span>
+                    <span class="mode-label">ヘ音</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Staff Display -->
+            <div class="staff-container">
+                <svg id="staff-svg" class="staff-svg" viewBox="0 0 600 200" preserveAspectRatio="xMidYMid meet">
+                    <!-- Clef symbol -->
+                    <text id="clef-symbol" class="clef-symbol" x="30" y="115" font-size="80">𝄞</text>
+
+                    <!-- Staff lines -->
+                    <g class="staff-lines">
+                        <line x1="80" y1="60" x2="580" y2="60" />
+                        <line x1="80" y1="80" x2="580" y2="80" />
+                        <line x1="80" y1="100" x2="580" y2="100" />
+                        <line x1="80" y1="120" x2="580" y2="120" />
+                        <line x1="80" y1="140" x2="580" y2="140" />
+                    </g>
+
+                    <!-- Notes will be added here dynamically -->
+                    <g id="notes-container"></g>
+                </svg>
+            </div>
+
+            <!-- Progress Display -->
+            <div class="progress-display">
+                <span class="progress-text">
+                    <span id="current-question">1</span>/<span id="total-questions">5</span>
+                </span>
+                <span class="score-text">
+                    せいかい: <span id="score" class="score-number">0</span>
+                </span>
+            </div>
+
+            <!-- Answer Buttons -->
+            <div class="answer-section">
+                <div class="answer-buttons" id="answer-buttons">
+                    <button class="answer-btn" data-note="ド">ド</button>
+                    <button class="answer-btn" data-note="レ">レ</button>
+                    <button class="answer-btn" data-note="ミ">ミ</button>
+                    <button class="answer-btn" data-note="ファ">ファ</button>
+                    <button class="answer-btn" data-note="ソ">ソ</button>
+                    <button class="answer-btn" data-note="ラ">ラ</button>
+                    <button class="answer-btn" data-note="シ">シ</button>
+                </div>
+            </div>
+
+            <!-- Feedback Display -->
+            <div id="feedback" class="feedback hidden">
+                <div class="feedback-content">
+                    <span class="feedback-icon"></span>
+                    <span class="feedback-text"></span>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer (空き領域) -->
+        <footer class="footer">
+            <!-- 自動で次の問題に進むため、ボタンは不要 -->
+        </footer>
+
+        <!-- Result Modal -->
+        <div id="result-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="result-stars" id="result-stars"></div>
+                <h2 class="result-title">おわり！</h2>
+                <p class="result-text">
+                    <span id="result-total">5</span>もんちゅう
+                    <span id="result-correct" class="result-highlight">0</span>もん せいかい！
+                </p>
+                <div class="result-message" id="result-message"></div>
+                <button id="restart-btn" class="restart-btn">
+                    もういちど あそぶ
+                    <span class="play-icon">🎹</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
