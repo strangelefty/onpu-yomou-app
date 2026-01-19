@@ -31,20 +31,22 @@ const TREBLE_NOTES = [
     { name: 'ソ', pitch: 'G5', y: 50, ledgerLines: [] },
 ];
 
-// Note definitions for Bass Clef (ヘ音記号): F2 to C4
+// Note definitions for Bass Clef (ヘ音記号): G2 to D4
+// 五線譜: y=60(第1線), y=80(第2線), y=100(第3線), y=120(第4線), y=140(第5線)
+// ヘ音記号では第4線(y=120)がファ(F3)
 const BASS_NOTES = [
-    { name: 'ファ', pitch: 'F2', y: 140, ledgerLines: [] },
-    { name: 'ソ', pitch: 'G2', y: 130, ledgerLines: [] },
-    { name: 'ラ', pitch: 'A2', y: 120, ledgerLines: [] },
-    { name: 'シ', pitch: 'B2', y: 110, ledgerLines: [] },
-    { name: 'ド', pitch: 'C3', y: 100, ledgerLines: [] },
-    { name: 'レ', pitch: 'D3', y: 90, ledgerLines: [] },
-    { name: 'ミ', pitch: 'E3', y: 80, ledgerLines: [] },
-    { name: 'ファ', pitch: 'F3', y: 70, ledgerLines: [] },
-    { name: 'ソ', pitch: 'G3', y: 60, ledgerLines: [] },
-    { name: 'ラ', pitch: 'A3', y: 50, ledgerLines: [] },
-    { name: 'シ', pitch: 'B3', y: 40, ledgerLines: [40] },  // Ledger line above
-    { name: 'ド', pitch: 'C4', y: 30, ledgerLines: [40, 30] },  // Middle C with ledger lines
+    { name: 'ソ', pitch: 'G2', y: 160, ledgerLines: [160] },   // 下第1線
+    { name: 'ラ', pitch: 'A2', y: 150, ledgerLines: [] },      // 下第1間
+    { name: 'シ', pitch: 'B2', y: 140, ledgerLines: [] },      // 第1線
+    { name: 'ド', pitch: 'C3', y: 130, ledgerLines: [] },      // 第1間
+    { name: 'レ', pitch: 'D3', y: 120, ledgerLines: [] },      // 第2線
+    { name: 'ミ', pitch: 'E3', y: 110, ledgerLines: [] },      // 第2間
+    { name: 'ファ', pitch: 'F3', y: 100, ledgerLines: [] },    // 第3線
+    { name: 'ソ', pitch: 'G3', y: 90, ledgerLines: [] },       // 第3間
+    { name: 'ラ', pitch: 'A3', y: 80, ledgerLines: [] },       // 第4線
+    { name: 'シ', pitch: 'B3', y: 70, ledgerLines: [] },       // 第4間
+    { name: 'ド', pitch: 'C4', y: 60, ledgerLines: [] },       // 第5線 (Middle C)
+    { name: 'レ', pitch: 'D4', y: 50, ledgerLines: [] },       // 上第1間
 ];
 
 // ============================================
