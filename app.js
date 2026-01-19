@@ -15,7 +15,7 @@ const CONFIG = {
     startX: 130,
 };
 
-// Note definitions for Treble Clef (ト音記号): C4 to G5
+// Note definitions for Treble Clef (ト音記号): C4 to C5 (1オクターブ)
 const TREBLE_NOTES = [
     { name: 'ド', pitch: 'C4', y: 160, ledgerLines: [160] },  // Middle C with ledger line
     { name: 'レ', pitch: 'D4', y: 150, ledgerLines: [] },
@@ -24,29 +24,21 @@ const TREBLE_NOTES = [
     { name: 'ソ', pitch: 'G4', y: 120, ledgerLines: [] },
     { name: 'ラ', pitch: 'A4', y: 110, ledgerLines: [] },
     { name: 'シ', pitch: 'B4', y: 100, ledgerLines: [] },
-    { name: 'ド', pitch: 'C5', y: 90, ledgerLines: [] },
-    { name: 'レ', pitch: 'D5', y: 80, ledgerLines: [] },
-    { name: 'ミ', pitch: 'E5', y: 70, ledgerLines: [] },
-    { name: 'ファ', pitch: 'F5', y: 60, ledgerLines: [] },
-    { name: 'ソ', pitch: 'G5', y: 50, ledgerLines: [] },
+    { name: 'ド', pitch: 'C5', y: 90, ledgerLines: [] },      // 高いド
 ];
 
-// Note definitions for Bass Clef (ヘ音記号): G2 to D4
-// 五線譜: y=60(第1線), y=80(第2線), y=100(第3線), y=120(第4線), y=140(第5線)
-// ヘ音記号では第4線(y=120)がファ(F3)
+// Note definitions for Bass Clef (ヘ音記号): C3 to C4 (1オクターブ)
+// 五線譜: y=60(第5線/上), y=80(第4線), y=100(第3線), y=120(第2線), y=140(第1線/下)
+// ヘ音記号では第4線(y=80)がファ(F3)
 const BASS_NOTES = [
-    { name: 'ソ', pitch: 'G2', y: 160, ledgerLines: [160] },   // 下第1線
-    { name: 'ラ', pitch: 'A2', y: 150, ledgerLines: [] },      // 下第1間
-    { name: 'シ', pitch: 'B2', y: 140, ledgerLines: [] },      // 第1線
-    { name: 'ド', pitch: 'C3', y: 130, ledgerLines: [] },      // 第1間
-    { name: 'レ', pitch: 'D3', y: 120, ledgerLines: [] },      // 第2線
-    { name: 'ミ', pitch: 'E3', y: 110, ledgerLines: [] },      // 第2間
-    { name: 'ファ', pitch: 'F3', y: 100, ledgerLines: [] },    // 第3線
-    { name: 'ソ', pitch: 'G3', y: 90, ledgerLines: [] },       // 第3間
-    { name: 'ラ', pitch: 'A3', y: 80, ledgerLines: [] },       // 第4線
-    { name: 'シ', pitch: 'B3', y: 70, ledgerLines: [] },       // 第4間
-    { name: 'ド', pitch: 'C4', y: 60, ledgerLines: [] },       // 第5線 (Middle C)
-    { name: 'レ', pitch: 'D4', y: 50, ledgerLines: [] },       // 上第1間
+    { name: 'ド', pitch: 'C3', y: 110, ledgerLines: [] },      // 第2間（低いド）
+    { name: 'レ', pitch: 'D3', y: 100, ledgerLines: [] },      // 第3線
+    { name: 'ミ', pitch: 'E3', y: 90, ledgerLines: [] },       // 第3間
+    { name: 'ファ', pitch: 'F3', y: 80, ledgerLines: [] },     // 第4線 ← ヘ音記号の基準
+    { name: 'ソ', pitch: 'G3', y: 70, ledgerLines: [] },       // 第4間
+    { name: 'ラ', pitch: 'A3', y: 60, ledgerLines: [] },       // 第5線（一番上）
+    { name: 'シ', pitch: 'B3', y: 50, ledgerLines: [] },       // 上第1間
+    { name: 'ド', pitch: 'C4', y: 40, ledgerLines: [40] },     // 上第1線（高いド）= Middle C
 ];
 
 // ============================================

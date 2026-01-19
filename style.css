@@ -61,6 +61,9 @@
 
 html {
     font-size: 16px;
+    /* タッチ操作の最適化 */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 body {
@@ -69,6 +72,8 @@ body {
     min-height: 100vh;
     color: var(--color-text-primary);
     overflow-x: hidden;
+    /* iOSでのズーム防止 */
+    -webkit-text-size-adjust: 100%;
 }
 
 /* App Container */
@@ -733,4 +738,173 @@ body {
 button:focus-visible {
     outline: 3px solid var(--color-pink);
     outline-offset: 3px;
+}
+
+/* ============================================
+   Touch Device Optimization
+   ============================================ */
+/* タッチデバイスではhover効果を無効化（誤反応防止） */
+@media (hover: none) and (pointer: coarse) {
+    .answer-btn:hover {
+        transform: none;
+        box-shadow: 0 4px 12px var(--color-shadow);
+    }
+
+    .mode-btn:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    /* タッチ時のアクティブ状態を強調 */
+    .answer-btn:active {
+        transform: scale(0.95);
+        filter: brightness(0.9);
+    }
+
+    .mode-btn:active {
+        transform: scale(0.95);
+    }
+
+    .restart-btn:hover {
+        transform: none;
+    }
+
+    .restart-btn:active {
+        transform: scale(0.95);
+    }
+}
+
+/* ============================================
+   Decorations
+   ============================================ */
+.decoration-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.deco-bear-balloon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 110px;
+    height: auto;
+    opacity: 0.9;
+    transform: rotate(-10deg);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    animation: floatBalloon 7s ease-in-out infinite;
+}
+
+.deco-bear-music {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 120px;
+    height: auto;
+    opacity: 0.9;
+    transform: rotate(10deg);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    animation: floatMusic 5s ease-in-out infinite alternate;
+}
+
+.deco-bear-relax {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 150px;
+    height: auto;
+    opacity: 0.9;
+    transform: rotate(-5deg);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    animation: floatRelax 6s ease-in-out infinite;
+}
+
+.deco-bear-honey {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 130px;
+    height: auto;
+    opacity: 0.9;
+    transform: rotate(5deg);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    animation: floatHoney 6s ease-in-out infinite alternate;
+}
+
+@keyframes floatRelax {
+
+    0%,
+    100% {
+        transform: rotate(-5deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(-5deg) translateY(-10px);
+    }
+}
+
+@keyframes floatMusic {
+    0% {
+        transform: rotate(10deg) translateY(0) scale(1);
+    }
+
+    100% {
+        transform: rotate(12deg) translateY(-15px) scale(1.05);
+    }
+}
+
+@keyframes floatBalloon {
+    0% {
+        transform: rotate(-10deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(-8deg) translateY(-20px);
+    }
+
+    100% {
+        transform: rotate(-10deg) translateY(0);
+    }
+}
+
+@keyframes floatHoney {
+    0% {
+        transform: rotate(5deg) translateY(0);
+    }
+
+    100% {
+        transform: rotate(3deg) translateY(-5px);
+    }
+}
+
+/* Mobile adjustments for decorations */
+@media (max-width: 768px) {
+    .deco-bear-balloon {
+        width: 80px;
+        top: 10px;
+        left: -5px;
+    }
+
+    .deco-bear-music {
+        width: 90px;
+        top: 10px;
+        right: -10px;
+    }
+
+    .deco-bear-relax {
+        width: 100px;
+        bottom: 10px;
+        left: -10px;
+    }
+
+    .deco-bear-honey {
+        width: 90px;
+        bottom: 10px;
+        right: -5px;
+    }
 }
