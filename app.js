@@ -42,6 +42,50 @@ const BASS_NOTES = [
 ];
 
 // ============================================
+// Piano Sound (Tone.js)
+// ============================================
+
+let piano = null;
+let audioStarted = false;
+
+/**
+ * Initialize piano synth
+ */
+function initPiano() {
+    if (piano) return;
+    // PolySynth with a piano-like sound
+    piano = new Tone.PolySynth(Tone.Synth, {
+        oscillator: { type: 'triangle' },
+        envelope: {
+            attack: 0.02,
+            decay: 0.3,
+            sustain: 0.4,
+            release: 1.2
+        }
+    }).toDestination();
+    piano.volume.value = -6; // Slightly reduce volume
+}
+
+/**
+ * Play a note with the piano
+ */
+async function playNote(pitch) {
+    try {
+        // Start audio context on first user interaction
+        if (!audioStarted) {
+            await Tone.start();
+            audioStarted = true;
+        }
+        if (!piano) {
+            initPiano();
+        }
+        piano.triggerAttackRelease(pitch, '0.8');
+    } catch (e) {
+        console.log('Audio playback error:', e);
+    }
+}
+
+// ============================================
 // Game State
 // ============================================
 
@@ -265,6 +309,9 @@ function handleAnswer(selectedNote) {
         state.answered = true;
         updateUI();
         disableAnswerButtons();
+
+        // Play the correct note sound
+        playNote(currentNote.pitch);
 
         // Check if round is complete
         if (state.currentQuestionIndex >= CONFIG.questionsPerRound - 1) {
