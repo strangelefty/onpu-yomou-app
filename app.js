@@ -310,8 +310,8 @@ function handleAnswer(selectedNote) {
         updateUI();
         disableAnswerButtons();
 
-        // Play the correct note sound
-        playNote(currentNote.pitch);
+        // 音再生は無効化
+        // playNote(currentNote.pitch);
 
         // Check if round is complete
         if (state.currentQuestionIndex >= CONFIG.questionsPerRound - 1) {
