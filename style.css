@@ -203,6 +203,15 @@ body {
     font-family: serif;
 }
 
+/* SVG Clef Styles */
+.clef-svg {
+    transition: opacity 0.3s ease;
+}
+
+.clef-svg.hidden {
+    display: none;
+}
+
 /* Note Styles */
 .note {
     transition: all 0.3s ease;
@@ -907,5 +916,249 @@ button:focus-visible {
         width: 90px;
         bottom: 10px;
         right: -5px;
+    }
+}
+
+/* ============================================
+   Level Selector
+   ============================================ */
+.level-selector {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.level-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border: 3px solid transparent;
+    border-radius: 20px;
+    background: var(--color-white);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-family);
+    box-shadow: 0 4px 12px var(--color-shadow);
+    min-width: 120px;
+}
+
+.level-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px var(--color-shadow);
+}
+
+.level-btn.active {
+    border-color: var(--color-pink);
+    background: linear-gradient(135deg, var(--color-pink-light), var(--color-yellow-light));
+    box-shadow: 0 6px 20px rgba(255, 181, 197, 0.4);
+}
+
+.level-icon {
+    font-size: 1.8rem;
+    margin-bottom: 4px;
+}
+
+.level-text {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+
+.level-desc {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+}
+
+/* ============================================
+   Chord Buttons (Level 2)
+   ============================================ */
+.chord-question-text {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 16px;
+}
+
+.chord-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.chord-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    height: 90px;
+    border: none;
+    border-radius: 20px;
+    font-family: var(--font-family);
+    color: var(--color-white);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 6px 16px var(--color-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.chord-btn:nth-child(1) {
+    background: linear-gradient(135deg, #FF7EB3, #FF5A8A);
+}
+
+.chord-btn:nth-child(2) {
+    background: linear-gradient(135deg, #7EE8A0, #4ADE80);
+}
+
+.chord-btn:nth-child(3) {
+    background: linear-gradient(135deg, #5AD8FF, #3DBEFF);
+}
+
+.chord-btn:nth-child(4) {
+    background: linear-gradient(135deg, #FFAB5A, #FF8A3D);
+}
+
+.chord-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 10px 24px var(--color-shadow-strong);
+}
+
+.chord-btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.chord-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.chord-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, transparent 50%);
+    border-radius: inherit;
+}
+
+.chord-numeral {
+    font-size: 2rem;
+    font-weight: 800;
+    z-index: 1;
+}
+
+.chord-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    z-index: 1;
+    margin-top: 4px;
+}
+
+/* Hidden class */
+.answer-section.hidden {
+    display: none;
+}
+
+/* ============================================
+   Chord Note Display
+   ============================================ */
+.chord-group {
+    transition: all 0.3s ease;
+}
+
+.chord-note-head {
+    fill: var(--color-note-normal);
+    transition: all 0.3s ease;
+}
+
+.chord-note-head.highlight {
+    fill: var(--color-note-highlight);
+    filter: drop-shadow(0 0 12px rgba(255, 107, 157, 0.7));
+    animation: glow 1.5s ease-in-out infinite;
+}
+
+.chord-note-head.correct {
+    fill: var(--color-note-correct);
+    filter: drop-shadow(0 0 8px rgba(74, 222, 128, 0.5));
+}
+
+.chord-note-head.wrong {
+    fill: var(--color-note-wrong);
+}
+
+/* Responsive adjustments for level selector */
+@media (max-width: 600px) {
+    .level-selector {
+        gap: 10px;
+    }
+
+    .level-btn {
+        padding: 10px 16px;
+        min-width: 100px;
+    }
+
+    .level-icon {
+        font-size: 1.5rem;
+    }
+
+    .level-text {
+        font-size: 0.9rem;
+    }
+
+    .chord-btn {
+        width: 90px;
+        height: 75px;
+    }
+
+    .chord-numeral {
+        font-size: 1.6rem;
+    }
+
+    .chord-name {
+        font-size: 0.75rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .level-btn {
+        padding: 16px 32px;
+        min-width: 140px;
+    }
+
+    .chord-btn {
+        width: 130px;
+        height: 100px;
+    }
+}
+
+/* Touch device optimization for new elements */
+@media (hover: none) and (pointer: coarse) {
+    .level-btn:hover {
+        transform: none;
+        box-shadow: 0 4px 12px var(--color-shadow);
+    }
+
+    .level-btn:active {
+        transform: scale(0.95);
+    }
+
+    .chord-btn:hover {
+        transform: none;
+        box-shadow: 0 6px 16px var(--color-shadow);
+    }
+
+    .chord-btn:active {
+        transform: scale(0.95);
+        filter: brightness(0.9);
     }
 }

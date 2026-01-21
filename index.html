@@ -35,12 +35,31 @@
             </div>
         </header>
 
+        <!-- Level Selection -->
+        <div class="level-selector">
+            <button id="level1-btn" class="level-btn active" data-level="1">
+                <span class="level-icon">🎵</span>
+                <span class="level-text">レベル1</span>
+                <span class="level-desc">たんおん</span>
+            </button>
+            <button id="level2-btn" class="level-btn" data-level="2">
+                <span class="level-icon">🎶</span>
+                <span class="level-text">レベル2</span>
+                <span class="level-desc">わおん</span>
+            </button>
+            <button id="level3-btn" class="level-btn" data-level="3">
+                <span class="level-icon">🎹</span>
+                <span class="level-text">レベル3</span>
+                <span class="level-desc">V7</span>
+            </button>
+        </div>
+
         <!-- Main Content -->
         <main class="main-content">
             <!-- Staff Display -->
             <div class="staff-container">
                 <svg id="staff-svg" class="staff-svg" viewBox="0 0 600 200" preserveAspectRatio="xMidYMid meet">
-                    <!-- Clef symbol -->
+                    <!-- Clef symbol (Unicode character) -->
                     <text id="clef-symbol" class="clef-symbol" x="30" y="115" font-size="80">𝄞</text>
 
                     <!-- Staff lines -->
@@ -67,8 +86,8 @@
                 </span>
             </div>
 
-            <!-- Answer Buttons -->
-            <div class="answer-section">
+            <!-- Answer Buttons for Level 1 (Single Notes) -->
+            <div class="answer-section" id="answer-section-notes">
                 <div class="answer-buttons" id="answer-buttons">
                     <button class="answer-btn" data-note="ド">ド</button>
                     <button class="answer-btn" data-note="レ">レ</button>
@@ -77,6 +96,48 @@
                     <button class="answer-btn" data-note="ソ">ソ</button>
                     <button class="answer-btn" data-note="ラ">ラ</button>
                     <button class="answer-btn" data-note="シ">シ</button>
+                </div>
+            </div>
+
+            <!-- Answer Buttons for Level 2 (Chords) -->
+            <div class="answer-section hidden" id="answer-section-chords">
+                <p class="chord-question-text">この わおん は なに？</p>
+                <div class="chord-buttons" id="chord-buttons">
+                    <button class="chord-btn" data-chord="I">
+                        <span class="chord-numeral">I</span>
+                        <span class="chord-name">ド ミ ソ</span>
+                    </button>
+                    <button class="chord-btn" data-chord="IV">
+                        <span class="chord-numeral">IV</span>
+                        <span class="chord-name">ファ ラ ド</span>
+                    </button>
+                    <button class="chord-btn" data-chord="V">
+                        <span class="chord-numeral">V</span>
+                        <span class="chord-name">ソ シ レ</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Answer Buttons for Level 3 (Advanced Chords with V7) -->
+            <div class="answer-section hidden" id="answer-section-advanced">
+                <p class="chord-question-text">この わおん は なに？</p>
+                <div class="chord-buttons" id="advanced-chord-buttons">
+                    <button class="chord-btn" data-chord="I">
+                        <span class="chord-numeral">I</span>
+                        <span class="chord-name">ド ミ ソ ド</span>
+                    </button>
+                    <button class="chord-btn" data-chord="IV">
+                        <span class="chord-numeral">IV</span>
+                        <span class="chord-name">ファ ラ ド ファ</span>
+                    </button>
+                    <button class="chord-btn" data-chord="V">
+                        <span class="chord-numeral">V</span>
+                        <span class="chord-name">ソ シ レ ソ</span>
+                    </button>
+                    <button class="chord-btn v7-btn" data-chord="V7">
+                        <span class="chord-numeral">V7</span>
+                        <span class="chord-name">ソ シ レ ファ</span>
+                    </button>
                 </div>
             </div>
 
