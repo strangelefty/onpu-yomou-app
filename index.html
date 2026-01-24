@@ -35,6 +35,30 @@
             </div>
         </header>
 
+        <!-- Stamp Display Section -->
+        <div class="stamp-section">
+            <div class="streak-display">
+                <span class="streak-label">れんぞく</span>
+                <div class="streak-bar">
+                    <div class="streak-progress" id="streak-progress"></div>
+                    <span class="streak-count" id="streak-count">0/5</span>
+                </div>
+                <span class="streak-icon">🌟</span>
+            </div>
+            <div class="stamps-display">
+                <div class="mini-stamps">
+                    <span class="stamp-icon">⭐</span>
+                    <span class="stamp-count" id="mini-stamp-count">0</span>
+                    <span class="stamp-label">/20</span>
+                </div>
+                <div class="stamp-arrow">→</div>
+                <div class="big-stamps">
+                    <span class="big-stamp-icon">🏆</span>
+                    <span class="stamp-count" id="big-stamp-count">0</span>
+                </div>
+            </div>
+        </div>
+
         <!-- Level Selection -->
         <div class="level-selector">
             <button id="level1-btn" class="level-btn active" data-level="1">
@@ -50,8 +74,9 @@
             <button id="level3-btn" class="level-btn" data-level="3">
                 <span class="level-icon">🎹</span>
                 <span class="level-text">レベル3</span>
-                <span class="level-desc">V7</span>
+                <span class="level-desc">たかいおと</span>
             </button>
+
         </div>
 
         <!-- Main Content -->
@@ -118,28 +143,14 @@
                 </div>
             </div>
 
-            <!-- Answer Buttons for Level 3 (Advanced Chords with V7) -->
-            <div class="answer-section hidden" id="answer-section-advanced">
-                <p class="chord-question-text">この わおん は なに？</p>
-                <div class="chord-buttons" id="advanced-chord-buttons">
-                    <button class="chord-btn" data-chord="I">
-                        <span class="chord-numeral">I</span>
-                        <span class="chord-name">ド ミ ソ ド</span>
-                    </button>
-                    <button class="chord-btn" data-chord="IV">
-                        <span class="chord-numeral">IV</span>
-                        <span class="chord-name">ファ ラ ド ファ</span>
-                    </button>
-                    <button class="chord-btn" data-chord="V">
-                        <span class="chord-numeral">V</span>
-                        <span class="chord-name">ソ シ レ ソ</span>
-                    </button>
-                    <button class="chord-btn v7-btn" data-chord="V7">
-                        <span class="chord-numeral">V7</span>
-                        <span class="chord-name">ソ シ レ ファ</span>
-                    </button>
+            <!-- Answer Buttons for Level 3 (High Notes) -->
+            <div class="answer-section hidden" id="answer-section-high">
+                <div class="answer-buttons" id="answer-buttons-high">
+                    <!-- ト音用：ドレミファソ、ヘ音用：ドシラソ（JSで切り替え） -->
                 </div>
             </div>
+
+
 
             <!-- Feedback Display -->
             <div id="feedback" class="feedback hidden">
@@ -170,18 +181,24 @@
                     <span class="play-icon">🎹</span>
                 </button>
             </div>
+
+            <!-- Stamp Notification Popup -->
+            <div id="stamp-notification" class="stamp-notification hidden">
+                <span class="stamp-notification-icon" id="stamp-notification-icon">⭐</span>
+                <div class="stamp-notification-text" id="stamp-notification-text">スタンプをゲット！</div>
+                <div class="stamp-notification-sub" id="stamp-notification-sub"></div>
+            </div>
         </div>
-    </div>
 
-    <!-- Decoration Images -->
-    <div class="decoration-container">
-        <img src="assets/bear_balloon.png" alt="" class="deco-bear-balloon">
-        <img src="assets/bear_music.png" alt="" class="deco-bear-music">
-        <img src="assets/bear_relax.png" alt="" class="deco-bear-relax">
-        <img src="assets/bear_honey.png" alt="" class="deco-bear-honey">
-    </div>
+        <!-- Decoration Images -->
+        <div class="decoration-container">
+            <img src="assets/bear_balloon.png" alt="" class="deco-bear-balloon">
+            <img src="assets/bear_music.png" alt="" class="deco-bear-music">
+            <img src="assets/bear_relax.png" alt="" class="deco-bear-relax">
+            <img src="assets/bear_honey.png" alt="" class="deco-bear-honey">
+        </div>
 
-    <script src="app.js"></script>
+        <script src="app.js"></script>
 </body>
 
 </html>

@@ -1162,3 +1162,307 @@ button:focus-visible {
         filter: brightness(0.9);
     }
 }
+
+/* ============================================
+   Stamp Reward System
+   ============================================ */
+.stamp-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 20px;
+    background: var(--color-white);
+    border-radius: var(--card-radius);
+    box-shadow: 0 8px 24px var(--color-shadow);
+    margin-bottom: 16px;
+}
+
+.streak-display {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.streak-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-text-secondary);
+    min-width: 60px;
+}
+
+.streak-bar {
+    flex: 1;
+    height: 24px;
+    background: linear-gradient(135deg, #f0f0f5, #e8e8f0);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.streak-progress {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg,
+            #FF7EB3 0%,
+            #FFAB5A 20%,
+            #FFE55A 40%,
+            #7EE8A0 60%,
+            #5AD8FF 80%,
+            #D87EFF 100%);
+    border-radius: 12px;
+    transition: width 0.4s ease;
+}
+
+.streak-count {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.streak-icon {
+    font-size: 1.5rem;
+    animation: streakPulse 2s ease-in-out infinite;
+}
+
+@keyframes streakPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+.stamps-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.mini-stamps,
+.big-stamps {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, var(--color-yellow-light), var(--color-orange-light));
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(255, 213, 181, 0.3);
+}
+
+.big-stamps {
+    background: linear-gradient(135deg, var(--color-purple-light), var(--color-pink-light));
+    box-shadow: 0 4px 12px rgba(216, 181, 255, 0.3);
+}
+
+.stamp-icon {
+    font-size: 1.4rem;
+}
+
+.big-stamp-icon {
+    font-size: 1.6rem;
+}
+
+.stamp-count {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--color-text-primary);
+}
+
+.stamp-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+}
+
+.stamp-arrow {
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    animation: arrowPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes arrowPulse {
+
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: translateX(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(3px);
+    }
+}
+
+/* Stamp Earned Animation */
+.stamp-earned {
+    animation: stampEarned 0.6s ease;
+}
+
+@keyframes stampEarned {
+    0% {
+        transform: scale(1);
+    }
+
+    30% {
+        transform: scale(1.4);
+    }
+
+    60% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.big-stamp-earned {
+    animation: bigStampEarned 1s ease;
+}
+
+@keyframes bigStampEarned {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    25% {
+        transform: scale(1.5) rotate(-10deg);
+    }
+
+    50% {
+        transform: scale(1.3) rotate(10deg);
+    }
+
+    75% {
+        transform: scale(1.4) rotate(-5deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* Stamp notification popup */
+.stamp-notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 150;
+    background: var(--color-white);
+    padding: 30px 50px;
+    border-radius: var(--card-radius);
+    box-shadow: 0 16px 48px var(--color-shadow-strong);
+    text-align: center;
+    animation: notificationPop 0.5s ease;
+}
+
+.stamp-notification.hidden {
+    display: none;
+}
+
+.stamp-notification-icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.stamp-notification-text {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+
+.stamp-notification-sub {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    margin-top: 8px;
+}
+
+@keyframes notificationPop {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsive adjustments for stamp section */
+@media (max-width: 600px) {
+    .stamp-section {
+        padding: 12px 16px;
+        gap: 10px;
+    }
+
+    .streak-label {
+        font-size: 0.8rem;
+        min-width: 50px;
+    }
+
+    .streak-bar {
+        height: 20px;
+    }
+
+    .streak-count {
+        font-size: 0.75rem;
+    }
+
+    .streak-icon {
+        font-size: 1.3rem;
+    }
+
+    .stamps-display {
+        gap: 10px;
+    }
+
+    .mini-stamps,
+    .big-stamps {
+        padding: 6px 12px;
+    }
+
+    .stamp-icon {
+        font-size: 1.2rem;
+    }
+
+    .big-stamp-icon {
+        font-size: 1.3rem;
+    }
+
+    .stamp-count {
+        font-size: 1.1rem;
+    }
+
+    .stamp-notification {
+        padding: 24px 36px;
+    }
+
+    .stamp-notification-icon {
+        font-size: 3rem;
+    }
+
+    .stamp-notification-text {
+        font-size: 1.1rem;
+    }
+}
